@@ -43,7 +43,7 @@ app.post('/posts/:id/comments', async(req, res) => {
 
     // hs002 new for event bus implementation
     // hs003 add status pending
-    await axios.post('http://hs-eventbus:4005/events', {
+    await axios.post('http://localhost:4005/events', {
         type: 'CommentCreated',
         data: {
             id: commentId,
@@ -70,7 +70,7 @@ app.post('/events', async(req, res) => {
       });
       comment.status = status;
   
-      await axios.post("http://hs-eventbus:4005/events", {
+      await axios.post("http://localhost:4005/events", {
         type: "CommentUpdated",
         data: {
           id,

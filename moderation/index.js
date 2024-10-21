@@ -11,7 +11,7 @@ app.post('/events', async (req, res) => {
     const status = data.content.includes('bla bla') ? 'rejected' : 'approved';
     console.log("CommentCreated received, status set to = ", status);
     console.log(data);
-    await axios.post('http://hs-eventbus:4005/events', {
+    await axios.post('http://localhost:4005/events', {
       type: 'CommentModerated',
       data: {
         id: data.id,

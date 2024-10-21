@@ -16,16 +16,16 @@ app.post('/events', async(req, res) => {
     // hs006 add code to store the events received
     events.push(event);
     // hs006 catch error when service is not up
-    axios.post('http://hs-posts:4000/events', event).catch((err) => {
+    axios.post('http://localhost:4000/events', event).catch((err) => {
       console.log(err.message); //this is the post service
     });
-    axios.post('http://hs-comments:4001/events', event).catch((err) => {
+    axios.post('http://localhost:4001/events', event).catch((err) => {
       console.log(err.message); //this is the comment service
     });
-    axios.post('http://hs-query:4002/events', event).catch((err) => {
+    axios.post('http://localhost:4002/events', event).catch((err) => {
       console.log(err.message); //this is the query service
     });
-    axios.post('http://hs-moderation:4003/events', event).catch((err) => {
+    axios.post('http://localhost:4003/events', event).catch((err) => {
       console.log(err.message); //this is the moderation service
     });
     res.send({status: 'ok event rec. and forwarded'});
